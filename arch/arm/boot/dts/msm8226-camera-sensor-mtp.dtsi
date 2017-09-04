@@ -24,13 +24,13 @@
 
 &cci {
 
-	actuator0: qcom,actuator@6e {
+/*	actuator0: qcom,actuator@6e {
 		cell-index = <3>;
 		reg = <0x6c>;
 		compatible = "qcom,actuator";
 		qcom,cci-master = <0>;
 	};
-
+*/
 	qcom,camera@0 {
 		cell-index = <0>;
 		compatible = "qcom,camera";

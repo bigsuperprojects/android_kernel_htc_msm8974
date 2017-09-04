@@ -24,13 +24,13 @@
 
 &cci {
 
-	actuator0: qcom,actuator@6e {
+/*	actuator0: qcom,actuator@6e {
 		cell-index = <3>;
 		reg = <0x6c>;
 		compatible = "qcom,actuator";
 		qcom,cci-master = <0>;
 	};
-
+*/
 	eeprom0: qcom,eeprom@6c {
 		cell-index = <0>;
 		reg = <0x6c 0x0>;
