@@ -1563,6 +1563,11 @@ config HTC_BATT_CORE
 	default n
 	bool "HTC battery core driver"
 
+config HTC_BATT_8960
+        depends on HTC_BATT_CORE
+        default n
+        bool "HTC battery driver for 8960"
+
 config HTC_BATT_8974
 	depends on HTC_BATT_CORE
 	default n
@@ -3168,6 +3173,21 @@ config PROJECT_NAME
 	default ""
 	help
 	  Support for Project Name
+
+config MACH_A5
+        depends on ARCH_MSM8226
+        bool "MSM8226 A5"
+        select MACH_A5UL
+		select MACH_A5TL
+		select MACH_A5DWG
+        help
+          Support for HTC MSM8226 A5
+
+config HAS_MACH_MEMUTILS
+	default n
+	bool "Motorola MSM memcpy enhancements"
+	help
+	Faster memcpy performance for Krait
 
 comment "HTC features"
 menuconfig HTC_FEATURES
