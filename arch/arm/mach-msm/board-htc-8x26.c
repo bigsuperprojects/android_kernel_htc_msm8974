@@ -61,7 +61,7 @@
 #endif
 #include <mach/cable_detect.h>
 #include <mach/devices_cmdline.h>
-#ifdef CONFIG_HTC_BATT_8960
+#ifdef CONFIG_HTC_BATT_8974
 #include "linux/mfd/pm8xxx/pm8921-charger.h"
 #include "linux/mfd/pm8xxx/pm8921-bms.h"
 #include "linux/mfd/pm8xxx/batt-alarm.h"
@@ -276,7 +276,7 @@ static struct cable_detect_platform_data cable_detect_pdata = {
 	.mhl_1v2_power = mhl_sii9234_1v2_power,
 	.usb_dpdn_switch        = m7_usb_dpdn_switch,
 #endif
-#ifdef CONFIG_HTC_BATT_8960
+#ifdef CONFIG_HTC_BATT_8974
 	.is_pwr_src_plugged_in	= pm8941_is_pwr_src_plugged_in,
 #endif
 	.vbus_debounce_retry = 1,
@@ -391,7 +391,7 @@ static void msm8226_add_usb_devices(void)
 	platform_device_register(&android_usb_device);
 }
 
-#if defined(CONFIG_HTC_BATT_8960)
+#if defined(CONFIG_HTC_BATT_8974)
 static int critical_alarm_voltage_mv[] = {3000, 3200, 3400};
 
 static struct htc_battery_platform_data htc_battery_pdev_data = {
@@ -501,7 +501,7 @@ void __init htc_8226_add_drivers(void)
 	tsens_tm_init_driver();
 	msm_thermal_device_init();
 	msm8x26_cable_detect_register();
-#if defined(CONFIG_HTC_BATT_8960)
+#if defined(CONFIG_HTC_BATT_8974)
 	htc_batt_cell_register();
 	msm8x26_add_batt_devices();
 #endif

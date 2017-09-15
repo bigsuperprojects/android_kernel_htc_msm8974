@@ -3177,9 +3177,9 @@ config PROJECT_NAME
 config MACH_A5
         depends on ARCH_MSM8226
         bool "MSM8226 A5"
-        select MACH_A5UL
-		select MACH_A5TL
-		select MACH_A5DWG
+        select MACH_A5_UL
+		select MACH_A5_TL
+		select MACH_A5_DWG
         help
           Support for HTC MSM8226 A5
 
