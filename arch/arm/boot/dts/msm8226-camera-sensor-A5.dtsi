@@ -17,8 +17,7 @@
 		cell-index = <0>;
 		compatible = "qcom,camera-led-flash";
 		qcom,flash-type = <1>;
-/*		qcom,flash-source = <&pm8226_flash0 &pm8226_flash1>; */
-		qcom,flash-source = <&pm8226_flash0>;
+		qcom,flash-source = <&pm8226_flash0 &pm8226_flash1>;
 		qcom,torch-source = <&pm8226_torch>;
                 htc,flash-mode-trigger-name = "htc_flash_mode";
 	};
@@ -76,7 +75,7 @@
 		qcom,sensor-position = <0>;
 		qcom,sensor-mode = <1>;
 		qcom,cci-master = <0>;
-		ncp6924_vaf-supply = <&ncp6924_ldo2>;
+		ncp6924_vaf-supply = <&ncp6924_ldo2>;//ncp6924_vaf-supply = <&ncp6924_dcdc2>;//
 		ncp6924_vio-supply = <&ncp6924_ldo3>;
 		ncp6924_vana-supply = <&ncp6924_ldo1>;
 		ncp6924_vdig-supply = <&ncp6924_dcdc2>;
@@ -124,7 +123,7 @@
 			qcom,sensor-position = <1>;
 			qcom,sensor-mode = <1>;
 			qcom,cci-master = <0>;
-			ncp6924_vaf-supply = <&ncp6924_ldo2>;
+			ncp6924_vaf-supply = <&ncp6924_ldo2>;//ncp6924_vaf-supply = <&ncp6924_dcdc2>;//
 			ncp6924_vio-supply = <&ncp6924_ldo3>;
 			ncp6924_vana-supply = <&ncp6924_ldo1>;
 			ncp6924_vdig-supply = <&ncp6924_dcdc2>;

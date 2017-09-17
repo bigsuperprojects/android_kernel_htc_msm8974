@@ -25,7 +25,7 @@
 		qcom,mdss-dsi-v-bottom-border = <0>;
 		qcom,mdss-dsi-bpp = <24>;
 		qcom,mdss-dsi-color-order = "rgb_swap_rgb";
-		qcom,mdss-dsi-underflow-color = <0xff>;
+		qcom,mdss-dsi-underflow-color = <0>;
 		qcom,mdss-dsi-border-color = <0>;
 		qcom,mdss-dsi-on-command = [
 			15 01 00 00 00 00 02 BB 03 /* MIPI VIDEO mode */
@@ -78,8 +78,6 @@
 		qcom,mdss-dsi-default-command-state = "dsi_hs_mode";
 		qcom,mdss-pan-physical-width-dimension = <68>;
 		qcom,mdss-pan-physical-height-dimension = <121>;
-		qcom,mdss-shrink-pwm = <7 61 255>;
-		qcom,mdss-shrink-pwm-power-hack = <7 61 255>;
 		qcom,mdss-dsi-lp11-init;
 		htc,mdss-camera-blk = <194>;
 		htc,mdss-camera-blk-power-hack = <169>;
@@ -87,7 +85,8 @@
 		htc,mdp-pcc-g = <0x7B8D>;
 		htc,mdp-pcc-b = <0x7BAB>;
 		htc,panel-id=<1>;
-		htc,skip-frame;
+		htc,brt-bl-table = <30 7>, <142 61>, <255 255>;
+		htc,brt-bl-table-power-hack = <30 7>, <142 61>, <255 255>;
 	};
 	qcom,mdss_dsi_a5_truly_novatek_35521_720p_video {
 		compatible = "qcom,mdss-dsi-panel";
@@ -115,7 +114,7 @@
 		qcom,mdss-dsi-v-bottom-border = <0>;
 		qcom,mdss-dsi-bpp = <24>;
 		qcom,mdss-dsi-color-order = "rgb_swap_rgb";
-		qcom,mdss-dsi-underflow-color = <0xff>;
+		qcom,mdss-dsi-underflow-color = <0>;
 		qcom,mdss-dsi-border-color = <0>;
 		qcom,mdss-dsi-on-command = [
 			39 01 00 00 00 00 05 FF AA 55 A5 80
@@ -322,14 +321,13 @@
 		qcom,mdss-dsi-default-command-state = "dsi_hs_mode";
 		qcom,mdss-pan-physical-width-dimension = <68>;
 		qcom,mdss-pan-physical-height-dimension = <121>;
-		qcom,mdss-shrink-pwm = <7 61 255>;
 		qcom,mdss-dsi-lp11-init;
 		htc,mdss-camera-blk = <194>;
 		htc,mdp-pcc-r = <0x8000>;
 		htc,mdp-pcc-g = <0x8000>;
 		htc,mdp-pcc-b = <0x8000>;
 		htc,panel-id=<2>;
-		htc,skip-frame;
+		htc,brt-bl-table = <30 7>, <142 61>, <255 255>;
 	};
 	qcom,mdss_dsi_a5_truly_cpt_hx8394d_720p_video {
 		compatible = "qcom,mdss-dsi-panel";
@@ -357,7 +355,7 @@
 		qcom,mdss-dsi-v-bottom-border = <0>;
 		qcom,mdss-dsi-bpp = <24>;
 		qcom,mdss-dsi-color-order = "rgb_swap_rgb";
-		qcom,mdss-dsi-underflow-color = <0xff>;
+		qcom,mdss-dsi-underflow-color = <0>;
 		qcom,mdss-dsi-border-color = <0>;
 		qcom,mdss-dsi-on-command = [
 			39 01 00 00 00 00 04 B9 FF 83 94
@@ -433,14 +431,13 @@
 		qcom,mdss-dsi-default-command-state = "dsi_hs_mode";
 		qcom,mdss-pan-physical-width-dimension = <68>;
 		qcom,mdss-pan-physical-height-dimension = <121>;
-		qcom,mdss-shrink-pwm = <7 61 255>;
 		qcom,mdss-dsi-lp11-init;
 		htc,mdss-camera-blk = <194>;
 		htc,mdp-pcc-r = <0x8000>;
 		htc,mdp-pcc-g = <0x8000>;
 		htc,mdp-pcc-b = <0x8000>;
 		htc,panel-id=<3>;
-		htc,skip-frame;
+		htc,brt-bl-table = <30 7>, <142 61>, <255 255>;
 	};
 	qcom,mdss_dsi_a5_tianma_hx8394d_720p_video {
 		compatible = "qcom,mdss-dsi-panel";
@@ -468,7 +465,7 @@
 		qcom,mdss-dsi-v-bottom-border = <0>;
 		qcom,mdss-dsi-bpp = <24>;
 		qcom,mdss-dsi-color-order = <0>;
-		qcom,mdss-dsi-underflow-color = <0xff>;
+		qcom,mdss-dsi-underflow-color = <0>;
 		qcom,mdss-dsi-border-color = <0>;
 		qcom,mdss-dsi-on-command = [
 			39 01 00 00 00 00 04 B9 FF 83 94
@@ -545,11 +542,10 @@
 		qcom,mdss-dsi-default-command-state = "dsi_hs_mode";
 		qcom,mdss-pan-physical-width-dimension = <68>;
 		qcom,mdss-pan-physical-height-dimension = <121>;
-		qcom,mdss-shrink-pwm = <7 61 255>;
 		qcom,mdss-dsi-lp11-init;
 		htc,mdss-camera-blk = <194>;
 		htc,panel-id=<4>;
-		htc,skip-frame;
+		htc,brt-bl-table = <30 7>, <142 61>, <255 255>;
 	};
 	qcom,mdss_dsi_a5_sharp_hx_720p_cmd {
 		compatible = "qcom,mdss-dsi-panel";
@@ -582,7 +578,7 @@
 		qcom,mdss-dsi-v-bottom-border = <0>;
 		qcom,mdss-dsi-bpp = <24>;
 		qcom,mdss-dsi-color-order = "rgb_swap_rgb";
-		qcom,mdss-dsi-underflow-color = <0xff>;
+		qcom,mdss-dsi-underflow-color = <0>;
 		qcom,mdss-dsi-border-color = <0>;
 		qcom,mdss-dsi-on-command = [
 					/* exit sleep */
@@ -632,9 +628,8 @@
 		qcom,mdss-dsi-default-command-state = "dsi_hs_mode";
 		qcom,mdss-pan-physical-width-dimension = <53>;
 		qcom,mdss-pan-physical-height-dimension = <94>;
-		qcom,mdss-shrink-pwm = <12 79 255>;
 		htc,mdss-camera-blk = <185>;
 		htc,panel-id=<0>;
-		htc,skip-frame;
+		htc,brt-bl-table = <30 12>, <142 79>, <255 255>;
 	};
 };

@@ -16,7 +16,7 @@
 /include/ "msm8226-camera-sensor-A5.dtsi"
 /include/ "msm-ncp6924.dtsi"
 /include/ "dsi-panel-a5.dtsi"
-/include/ "msm8226-a5-storage.dtsi"
+/include/ "msm8226-a5ul-storage.dtsi"
 /include/ "msm8926-touch-a5-config.dtsi"
 
 / {
@@ -116,7 +116,6 @@
 	};
 
 	i2c@f9924000 {
-		qcom,clk-ctl-xfer;
 		nxp_pn544_nfc@28 {
 			compatible = "nxp,pn544-nfc";
 			reg = <0x28>;
@@ -144,16 +143,16 @@
 
 		key0 {
 			gpio    = <&msmgpio 106 3>;
-			keycode = <116>; /* Power */
-			pull = <1>;
+			keycode = <116>;	//pwr
+			pull = <1>;		//0=pull up, 1=no pull
 		};
 		key1 {
 			gpio    = <&msmgpio 108 3>;
-			keycode = <115>; /* Volume Up */
+			keycode = <115>;	//vUP
 		};
 		key2 {
 			gpio    = <&msmgpio 107 3>;
-			keycode = <114>; /* Volume Down */
+			keycode = <114>;	//vDN
 		};
 
 	};
@@ -172,7 +171,7 @@
 		mgr,wire_alt = <2>;
 		mgr,hs_typenum   = <2>;
 		mgr,hs_type      = <2 1>;
-		mgr,adc_max      = <1541 254>;
+		mgr,adc_max      = <1541 254>; // <1557 254>, 1% tolerance
 		mgr,adc_min      = <255 0>;
 	};
 

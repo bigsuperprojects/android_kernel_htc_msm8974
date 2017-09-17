@@ -37,9 +37,9 @@
 		qcom,mdss-clk-factor = <5 4>;		/* 1.25 times */
 
 		/* Clock levels */
-		qcom,mdss-clk-levels = <92310000 100000000
+/*		qcom,mdss-clk-levels = <92310000 100000000
 				    133330000 177780000 200000000>;
-
+*/
 		qcom,max-clk-rate = <200000000>;
 		qcom,mdss-pipe-vig-off = <0x00001200>;
 		qcom,mdss-pipe-rgb-off = <0x00001E00>;
@@ -122,9 +122,9 @@
 		qcom,platform-bist-ctrl = [00 00 b1 ff 00 00];
 		qcom,platform-regulator-settings = [07 09 03 00 20 00 01];
 		qcom,platform-lane-config = [00 00 00 00 00 00 00 01 97
-			00 00 00 00 05 00 00 01 97
-			00 00 00 00 0a 00 00 01 97
-			00 00 00 00 0f 00 00 01 97
+			00 00 00 00 00 00 00 01 97
+			00 00 00 00 00 00 00 01 97
+			00 00 00 00 00 00 00 01 97
 			00 c0 00 00 00 00 00 01 bb];
 		qcom,platform-supply-entry1 {
 			qcom,supply-name = "vdd";
@@ -179,3 +179,6 @@
 		qcom,mdss-fb-map = <&mdss_fb1>;
 	};
 };
+/*
+/include/ "msm8226-mdss-panels.dtsi"
+*/
