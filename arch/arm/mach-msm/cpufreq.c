@@ -117,6 +117,9 @@ static int set_cpu_freq(struct cpufreq_policy *policy, unsigned int new_freq,
 	struct cpufreq_freqs freqs;
 	struct sched_param param = { .sched_priority = MAX_RT_PRIO-1 };
 
+	if (policy->cpu >= 1 && is_sync)
+		return 0;
+
 	freqs.old = policy->cur;
 	freqs.new = new_freq;
 	freqs.cpu = policy->cpu;
@@ -277,7 +280,10 @@ static int __cpuinit msm_cpufreq_init(struct cpufreq_policy *policy)
 #endif
 
 	if (is_clk)
-		cur_freq = clk_get_rate(cpu_clk[policy->cpu])/1000;
+		if (policy->cpu >= 1 && is_sync)
+			cur_freq = clk_get_rate(cpu_clk[0])/1000;
+		else
+			cur_freq = clk_get_rate(cpu_clk[policy->cpu])/1000;
 	else
 		cur_freq = acpuclk_get_rate(policy->cpu);
 

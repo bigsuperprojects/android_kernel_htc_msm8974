@@ -958,7 +958,7 @@
 			compatible = "htc,modem-debug-dump-pmic";
 			#address-cells = <1>;
 			#size-cells = <1>;
-			reg = <0>;
+//			reg = <0x0>;
 			htc,dump-register =
 			/* PM8926 SMPS5(8926 ONLY) - VDD_MSS (8926 only) */
 			< 1 0x2008 >,

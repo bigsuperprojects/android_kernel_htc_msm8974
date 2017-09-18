@@ -295,6 +295,147 @@ static void msm8x26_cable_detect_register(void)
 	platform_device_register(&cable_detect_device);
 }
 
+static int __maybe_unused memwl_usb_product_id_match_array[] = {
+	0x0ff8, 0x0e70, 
+	0x0fa4, 0x0eaf, 
+	0x0fa5, 0x0eb0, 
+	0x0f91, 0x0ec5, 
+	0x0f64, 0x07d8, 
+	0x0f63, 0x07d9, 
+	0x0f29, 0x07d6, 
+	0x0f2a, 0x07d7, 
+	0x0f9a, 0x0eb2, 
+	0x0f99, 0x0eb1, 
+	-1,
+};
+
+static int __maybe_unused memwl_usb_product_id_rndis[] = {
+	0x076E, 
+	0x0774, 
+	0x076F, 
+	0x0775, 
+	0x07CC, 
+	0x07D0, 
+	0x07CD, 
+	0x07D1, 
+};
+static int __maybe_unused memwl_usb_product_id_match(int product_id, int intrsharing)
+{
+	int *pid_array = memwl_usb_product_id_match_array;
+	int *rndis_array = memwl_usb_product_id_rndis;
+	int category = 0;
+
+	if (!pid_array)
+		return product_id;
+
+	
+	if (board_mfg_mode())
+		return product_id;
+
+	while (pid_array[0] >= 0) {
+		if (product_id == pid_array[0])
+			return pid_array[1];
+		pid_array += 2;
+	}
+	printk("%s(%d):product_id=%d, intrsharing=%d\n", __func__, __LINE__, product_id, intrsharing);
+
+	switch (product_id) {
+		case 0x0f8c: 
+			category = 0;
+			break;
+		case 0x0f8d: 
+			category = 1;
+			break;
+		case 0x0f5f: 
+			category = 2;
+			break;
+		case 0x0f60: 
+			category = 3;
+			break;
+		default:
+			category = -1;
+			break;
+	}
+	if (category != -1) {
+		if (intrsharing)
+			return rndis_array[category * 2];
+		else
+			return rndis_array[category * 2 + 1];
+	}
+	return product_id;
+}
+
+static int __maybe_unused a3cl_usb_product_id_match_array[] = {
+	0x0ff8, 0x07e0, 
+	0x0fa4, 0x07e3, 
+	0x0fa5, 0x07e4, 
+	0x0f91, 0x07e7, 
+	0x0f64, 0x07fe, 
+	0x0f63, 0x07ff, 
+	0x0f29, 0x07fc, 
+	0x0f2a, 0x07fd, 
+	0x0f9a, 0x07e6, 
+	0x0f99, 0x07e5, 
+	-1,
+};
+
+static int __maybe_unused a3cl_usb_product_id_rndis[] = {
+	0x07ea, 
+	0x07f0, 
+	0x07eb, 
+	0x07f1, 
+	0x07f4, 
+	0x07f8, 
+	0x07f5, 
+	0x07f9, 
+};
+static int __maybe_unused a3cl_usb_product_id_match(int product_id, int intrsharing)
+{
+	int *pid_array = a3cl_usb_product_id_match_array;
+	int *rndis_array = a3cl_usb_product_id_rndis;
+	int category = 0;
+
+	if (!pid_array)
+		return product_id;
+
+	
+	if (board_mfg_mode())
+		return product_id;
+
+	while (pid_array[0] >= 0) {
+		if (product_id == pid_array[0])
+			return pid_array[1];
+		pid_array += 2;
+	}
+	printk("%s(%d):product_id=%d, intrsharing=%d\n", __func__, __LINE__, product_id, intrsharing);
+
+	switch (product_id) {
+		case 0x0f8c: 
+			category = 0;
+			break;
+		case 0x0f8d: 
+			category = 1;
+			break;
+		case 0x0f5f: 
+			category = 2;
+			break;
+		case 0x0f60: 
+			category = 3;
+			break;
+		default:
+			category = -1;
+			break;
+	}
+	if (category != -1) {
+		if (intrsharing)
+			return rndis_array[category * 2];
+		else
+			return rndis_array[category * 2 + 1];
+	}
+	return product_id;
+}
+
+
 static struct android_usb_platform_data android_usb_pdata = {
 	.vendor_id      = 0x0bb4,
 	.product_id     = 0x0dff,
