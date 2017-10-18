@@ -99,6 +99,12 @@ hardboot:
 	mov	r1, #0
 	str	r1, [r0, #0]
 loop:	b	loop
+#elif defined(CONFIG_ARCH_MSM8226)
+	/* Restart using the PMIC chip, see mach-msm/restart.c */
+	ldr	r0, =MSM8226_MPM2_PSHOLD_PHYS
+	mov	r1, #0
+	str	r1, [r0, #0]
+loop:	b	loop
 #else
 #error "No reboot method defined for hardboot."
 #endif
