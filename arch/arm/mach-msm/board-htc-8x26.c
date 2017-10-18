@@ -306,8 +306,6 @@ static struct android_usb_platform_data android_usb_pdata = {
 	.usb_diag_interface = "diag",
 	.fserial_init_string = "smd:modem,tty,tty:autobot,tty:serial,tty:autobot,tty:acm",
 	.nluns = 1,
-	.cdrom_lun = 0x1,
-	.vzw_unmount_cdrom = 0,
 };
 
 #define QCT_ANDROID_USB_REGS 0xFC42B0C8
@@ -339,14 +337,11 @@ static void msm8226_add_usb_devices(void)
 	android_usb_pdata.product_id 	= 0x0629;
 #elif defined(CONFIG_MACH_DUMMY)
 	android_usb_pdata.product_id 	= 0x060c;
-	android_usb_pdata.vzw_unmount_cdrom = 1;
 	android_usb_pdata.nluns = 2;
-        android_usb_pdata.cdrom_lun = 0x3;
 #elif defined(CONFIG_MACH_DUMMY)
 	android_usb_pdata.product_id 	= 0x063d;
 #elif defined(CONFIG_MACH_DUMMY)
 	android_usb_pdata.product_id 	= 0x063e;
-	android_usb_pdata.vzw_unmount_cdrom = 1;
 #elif defined(CONFIG_MACH_DUMMY)
 	android_usb_pdata.product_id 	= 0x0647;
 #else
