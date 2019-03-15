@@ -604,7 +604,7 @@ static int mdss_fb_probe(struct platform_device *pdev)
 	mfd->bl_level_prev_scaled = 0;
 	mfd->bl_scale = 1024;
 	mfd->bl_min_lvl = 30;
-	mfd->fb_imgType = MDP_RGBA_8888;
+	mfd->fb_imgType = MDP_RGB_888;
 
 	mfd->pdev = pdev;
 	if (pdata->next)
